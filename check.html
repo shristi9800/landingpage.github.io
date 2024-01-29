@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore States</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px;
+      text-align: center;
+    }
+
+    .slideshow-container {
+      display: flex;
+      flex-wrap: wrap; /* Allow items to wrap to the next line */
+      justify-content: flex-start; /* Align items to the start of the flex container */
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+    }
+
+    .mySlides {
+      display: flex;
+      flex-direction: column;
+      scroll-snap-align: start;
+      cursor: pointer;
+      margin-right: 10px;
+      margin-bottom: 10px; /* Add margin between rows */
+      width: 250px; /* Set a fixed width for the image box */
+    }
+
+    .slideshow-img {
+      width: 100%;
+      height: 150px; /* Set a fixed height for the image box */
+      object-fit: cover; /* Maintain aspect ratio and cover the entire box */
+      border-radius: 8px;
+    }
+
+    .slide-info {
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      padding: 10px;
+      text-align: left;
+    }
+
+    button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Explore States</h1>
+  </header>
+
+  <section>
+    <div class="slideshow-container" id="slideshow-container">
+      <!-- Slides for each state -->
+      <!-- Arunachal Pradesh -->
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="ap.jpg" alt="Arunachal Pradesh - Image 1">
+        <div class="slide-info">
+          <h2>Arunachal Pradesh</h2>
+          <p>Arunachal Pradesh: Untouched, unseen, unbelievable
+            The largest of the Seven Sisters of the North East, Arunachal Pradesh literally means 'the land of dawn-lit mountains'.</p>
+        </div>
+      </div>
+
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="ap2.jpg" alt="Arunachal Pradesh - Image 2">
+        <div class="slide-info">
+          <h2>Arunachal Pradesh</h2>
+          <p>Another beautiful view of Arunachal Pradesh.</p>
+        </div>
+      </div>
+
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="ap3.jpg" alt="Arunachal Pradesh - Image 3">
+        <div class="slide-info">
+          <h2>Arunachal Pradesh</h2>
+          <p>Another beautiful view of Arunachal Pradesh.</p>
+        </div>
+      </div>
+
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="ap4.jpg" alt="Arunachal Pradesh - Image 4">
+        <div class="slide-info">
+          <h2>Arunachal Pradesh</h2>
+          <p>Another beautiful view of Arunachal Pradesh.</p>
+        </div>
+      </div>
+
+      <!-- Assam -->
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="a1.jpg" alt="Assam - Image 1">
+        <div class="slide-info">
+          <h2>Assam</h2>
+          <p>The unique attractions of Assam are its wildlife sanctuaries like Kaziranga, apart from its cultural attractions: the temples, monuments, art and craft.</p>
+        </div>
+      </div>
+
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="a2.jpg" alt="Assam - Image 2">
+        <div class="slide-info">
+          <h2>Assam</h2>
+        </div>
+      </div>
+
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="a3.jpg" alt="Assam - Image 3">
+        <div class="slide-info">
+          <h2>Assam</h2>
+        </div>
+      </div>
+
+      <div class="mySlides" onclick="plusSlides(1)">
+        <img class="slideshow-img" src="a4.jpg" alt="Assam - Image 4">
+        <div class="slide-info">
+          <h2>Assam</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation buttons -->
+    <button onclick="plusSlides(-1)">❮ Prev</button>
+    <button onclick="plusSlides(1)">Next ❯</button>
+  </section>
+
+  <script>
+    var slideIndex = 1;
+
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+
+      if (n > slides.length) {
+        slideIndex = 1;
+      } else if (n < 1) {
+        slideIndex = slides.length;
+      }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+    }
+  </script>
+
+</body>
+
+</html>

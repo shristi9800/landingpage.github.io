@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customize Your Trip</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px;
+    }
+
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .activity-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .activity {
+      width: 30%;
+      margin-bottom: 20px;
+    }
+
+    .activity img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    #selectedDestinations {
+      margin-top: 10px;
+    }
+    .selected-container {
+      margin-top: 10px;
+    }
+
+    .selected-item {
+      display: inline-block;
+      padding: 5px;
+      margin-right: 5px;
+      background-color: #3498db;
+      color: #fff;
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .delete-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 3px;
+      background-color: #e74c3c;
+      border-radius: 50%;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Customize Your Trip</h1>
+  </header>
+
+  <section>
+    <form id="tripForm" onsubmit="customizeTrip(event)">
+      <label for="destination">Destinations:</label>
+      <select id="destination" name="destination" size="5" multiple required>
+        <option value="Andhra Pradesh">Andhra Pradesh</option>
+        <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+        <option value="Assam">Assam</option>
+        <option value="Bihar">Bihar</option>
+        <option value="Chhattisgarh">Chhattisgarh</option>
+        <option value="Goa">Goa</option>
+        <option value="Gujarat">Gujarat</option>
+        <option value="Haryana">Haryana</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Jharkhand">Jharkhand</option>
+        <option value="Karnataka">Karnataka</option>
+        <option value="Kerala">Kerala</option>
+        <option value="Madhya Pradesh">Madhya Pradesh</option>
+        <option value="Maharashtra">Maharashtra</option>
+        <option value="Manipur">Manipur</option>
+        <option value="Meghalaya">Meghalaya</option>
+        <option value="Mizoram">Mizoram</option>
+        <option value="Nagaland">Nagaland</option>
+        <option value="Odisha">Odisha</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Sikkim">Sikkim</option>
+        <option value="Tamil Nadu">Tamil Nadu</option>
+        <option value="Telangana">Telangana</option>
+        <option value="Tripura">Tripura</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Uttarakhand">Uttarakhand</option>
+        <option value="West Bengal">West Bengal</option>
+        <!-- Add all 29 states here -->
+      </select>
+      <label for="duration">Duration (days):</label>
+      <input type="number" id="duration" name="duration" required>
+
+      <label for="budget">Budget ($):</label>
+      <input type="number" id="budget" name="budget" required>
+
+      <label for="activities">Preferred Activities:</label>
+      <!-- Using checkboxes for activities -->
+      <div id="activities">
+        <input type="checkbox" id="beach" name="activities" value="beach">
+        <label class="checkbox-label" for="beach">Beach - Cost: $50</label>
+
+        <input type="checkbox" id="hiking" name="activities" value="hiking">
+        <label class="checkbox-label" for="hiking">Hiking - Cost: $30</label>
+
+        <input type="checkbox" id="sightseeing" name="activities" value="sightseeing">
+        <label class="checkbox-label" for="sightseeing">Sightseeing - Cost: $40</label>
+
+        <input type="checkbox" id="scuba_diving" name="activities" value="scuba_diving">
+        <label class="checkbox-label" for="scuba_diving">Scuba Diving - Cost: $100</label>
+
+        <input type="checkbox" id="skiing" name="activities" value="skiing">
+        <label class="checkbox-label" for="skiing">Skiing - Cost: $80</label>
+
+        <input type="checkbox" id="wildlife_safari" name="activities" value="wildlife_safari">
+        <label class="checkbox-label" for="wildlife_safari">Wildlife Safari - Cost: $60</label>
+
+        <input type="checkbox" id="cultural_tour" name="activities" value="cultural_tour">
+        <label class="checkbox-label" for="cultural_tour">Cultural Tour - Cost: $45</label>
+
+        <input type="checkbox" id="shopping" name="activities" value="shopping">
+        <label class="checkbox-label" for="shopping">Shopping - Cost: $20</label>
+
+        <input type="checkbox" id="spas_wellness" name="activities" value="spas_wellness">
+        <label class="checkbox-label" for="spas_wellness">Spas & Wellness - Cost: $70</label>
+
+        <input type="checkbox" id="adventure_parks" name="activities" value="adventure_parks">
+        <label class="checkbox-label" for="adventure_parks">Adventure Parks - Cost: $35</label>
+        <!-- Add more activities based on your needs -->
+      </div>
+
+      <div class="selected-container" id="selectedDestinationsContainer">
+        <p>Selected Destinations:</p>
+      </div>
+
+      <div class="selected-container" id="selectedActivitiesContainer">
+        <p>Selected Activities:</p>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+   
+
+    <div class="activity-container">
+      <!-- Add images for each activity -->
+      <div class="activity">
+        <img src="beachimage.jpeg" alt="Beach">
+      </div>
+      <div class="activity">
+        <img src="hiking.jpg" alt="Hiking">
+      </div>
+      <div class="activity">
+        <img src="sightseeing.jpeg" alt="Sightseeing">
+      </div>
+      <!-- Add images for other activities -->
+    </div>
+  </section>
+
+  <script>
+    function customizeTrip(event) {
+      event.preventDefault();
+
+      var destinations = Array.from(document.getElementById("destination").options)
+        .filter(option => option.selected)
+        .map(option => option.value);
+      var duration = document.getElementById("duration").value;
+      var budget = document.getElementById("budget").value;
+      var activities = Array.from(document.querySelectorAll("#activities input[type='checkbox']:checked"))
+        .map(checkbox => checkbox.value);
+
+      var customizedTrip = `Destinations: ${destinations.join(", ")}\nDuration: ${duration} days\nBudget: $${budget}\nActivities: ${activities.join(", ")}`;
+
+      alert("Customized Trip:\n" + customizedTrip);
+
+      updateSelectedItems(destinations, "selectedDestinationsContainer");
+      updateSelectedItems(activities, "selectedActivitiesContainer");
+
+      document.getElementById("tripForm").reset();
+    }
+
+    function updateSelectedItems(items, containerId) {
+      var container = document.getElementById(containerId);
+      container.innerHTML = `<p>${containerId.charAt(0).toUpperCase() + containerId.slice(1, -9)}:</p>`;
+      
+      items.forEach(function(item) {
+        var itemDiv = document.createElement("div");
+        itemDiv.className = "selected-item";
+        itemDiv.innerHTML = `${item} <span class="delete-icon" onclick="removeSelectedItem(this, '${item}', '${containerId}')">&#10006;</span>`;
+        container.appendChild(itemDiv);
+      });
+    }
+
+    function removeSelectedItem(deleteIcon, item, containerId) {
+      var container = document.getElementById(containerId);
+      container.removeChild(deleteIcon.parentNode);
+    }
+  </script>
+
+</body>
+</html>
